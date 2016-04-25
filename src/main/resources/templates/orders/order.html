@@ -1,0 +1,18 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		
+		<div>
+	<h1 th:text="${order.customer.name}"></h1>	
+	<label>Order Number</label><p th:text="${order.orderId}"> </p>
+	<label>Order Date</label><p th:text="${order.orderDate}"></p>
+	<label>Order Quantity</label><p th:text="${order.quantity}"></p>
+
+	
+	
+	</div>
+		
+	
+	
+	</div>
+
+</html>

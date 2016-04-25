@@ -1,0 +1,40 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		
+		<a class="btn btn-primary" th:href="@{'/customer/new'}">Add New customer</a>
+		
+		<table class="table table-striped" id="customer_list">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="customer: ${customers}">
+				<td class="id" data-th-text="${customer.customerId}"></td>
+				<td><a th:href="@{'/customer/{id}'(id=${customer.customerId})}" class="customer" data-th-text="${customer.name}"></a></td>
+				<td>
+					<a th:href="@{'/customer/{id}/edit'(id=${customer.customerId})}" class="edit" th:attr="name=${customer.name}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-edit" />
+						</span>
+					</a>
+				
+				</td>
+				<td>
+					<a th:href="@{'/customer/{id}/delete'(id=${customer.customerId})}" class="delete" th:attr="name=${customer.name}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-trash" />
+						</span>
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+</html>

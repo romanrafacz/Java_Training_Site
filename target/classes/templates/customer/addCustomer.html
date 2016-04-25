@@ -1,0 +1,15 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		<form method="post" name="customer_form" id="cusotmer_form" th:action="@{'/customer/add'}" role="form">
+			<div class="form-group">
+				<p>Create a new customer</p>
+				<label for="artistName">Username</label>
+				<input type="text" class="form-control" id="customerName" name="customerName" />
+				<label for="artistName">Email</label>
+				<input type="text" class="form-control" id="customerEmail" name="customerEmail" />
+			</div>
+			<button type="submit" value="Add" class="btn btn-primary">Add</button>
+		</form>
+	</div>
+
+</html>

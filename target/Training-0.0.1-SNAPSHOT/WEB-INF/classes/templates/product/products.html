@@ -1,0 +1,44 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		
+		<a class="btn btn-primary" th:href="@{'/product/new'}">Add New product</a>
+		
+		<table class="table table-striped" id="product_list">
+			<thead>
+			<tr>
+				<th>Id</th>
+				<th>Code</th>
+				<th>Price</th>
+				<th>inStock</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="product: ${products}">
+				<td class="id" data-th-text="${product.productId}"></td>
+				<td><a class="product" data-th-text="${product.productCode}"></a></td>
+				<td class="product" data-th-text="${product.price}"></td>
+				<td class="product" data-th-text="${product.inStock}"></td>
+				<td>
+					<a th:href="@{'/product/{id}/edit'(id=${product.productId})}" class="edit" th:attr="name=${product.productCode}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-edit" />
+						</span>
+					</a>
+				
+				</td>
+				<td>
+					<a th:href="@{'/product/{id}/delete'(id=${product.productId})}" class="delete" th:attr="name=${product.productCode}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-trash" />
+						</span>
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+</html>

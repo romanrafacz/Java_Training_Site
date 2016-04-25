@@ -1,0 +1,23 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		
+		<a class="btn btn-primary" th:href="@{'/customer/new'}">Add New customer</a>
+		
+		<table class="table table-striped" id="customer_list">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>startDate</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="course: ${schedule}">
+				<td class="id" data-th-text="${course.name}"></td>
+				<td><a th:href="@{'/customer/{id}'(id=${course.customerId})}" class="customer" data-th-text="${customer.startDate}"></a></td>
+			</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+</html>

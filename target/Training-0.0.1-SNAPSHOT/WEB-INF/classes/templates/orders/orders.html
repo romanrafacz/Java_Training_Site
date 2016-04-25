@@ -1,0 +1,46 @@
+<html layout:decorator="home">
+	<div layout:fragment="content">
+		
+		<a class="btn btn-primary" th:href="@{'/order/new'}">Add New order</a>
+		
+		<table class="table table-striped" id="order_list">
+			<thead>
+			<tr>
+				<th>Id</th>
+				<th>Code</th>
+				<th>Quantity</th>
+				<th>Date</th>
+				<th>Customer</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr data-th-each="order: ${orders}">
+				<td class="id" data-th-text="${order.orderId}"></td>
+				<td><a class="order" data-th-text="${order.code}"></a></td>
+				<td class="order" data-th-text="${order.quantity}"></td>
+				<td class="order" data-th-text="${order.orderDate}"></td>
+				<td class="order" data-th-text="${order.customer}"></td>
+				<td>
+					<a th:href="@{'/order/{id}/edit'(id=${order.orderId})}" class="edit" th:attr="name=${order.code}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-edit" />
+						</span>
+					</a>
+				
+				</td>
+				<td>
+					<a th:href="@{'/order/{id}/delete'(id=${order.orderId})}" class="delete" th:attr="name=${order.code}">
+						<span class="fa-stack">
+							<i class="glyphicon glyphicon-trash" />
+						</span>
+					</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+</html>
