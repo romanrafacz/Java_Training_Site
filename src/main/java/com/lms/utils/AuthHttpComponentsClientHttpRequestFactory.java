@@ -45,6 +45,10 @@ public class AuthHttpComponentsClientHttpRequestFactory
 		this.password = password;
 	}
 	
+	public AuthHttpComponentsClientHttpRequestFactory(String httpHost, String userName2, String password2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	protected HttpContext createHttpContext(HttpMethod httpMethod, URI uri){
 		//Create AuthCache instance

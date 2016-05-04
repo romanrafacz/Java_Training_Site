@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.lms.domain.MOrder;
 
-public interface OrderRepository extends JpaRepository<MOrder, Integer> {
+public interface OrderRepository extends JpaRepository<MOrder, Integer>{
 	
 	@Query("SELECT code, quantity, orderDate from MOrder WHERE customer_id = (:customerId) ")
 	List<MOrder> findOrderByCustomer(@Param("customerId") Integer customerId);

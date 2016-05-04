@@ -31,6 +31,18 @@ public class CustomerProfile implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "CUSTOMER_ID", nullable = false)
 	private Customer customer;
+	
+	@Id
+	@Column(name="customer_profile_phone")
+	private String phoneNumber;
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
 	public Customer getCustomer() {
 		return customer;

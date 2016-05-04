@@ -65,7 +65,7 @@ public class CustomerController {
 		CustomerProfile customerProfile = new CustomerProfile(customerEmail);
 		customerProfile.setProfileId(customer.getCustomerId());
 		customerProfile.setEmail(customerEmail);
-		customerProfile.setCustomer(customer.getCustomerId());
+		customerProfile.setCustomer(customer);
 		customerProfileRepository.save(customerProfile);
 		
 		//Another attempt
