@@ -3,7 +3,8 @@ package com.lms.domain;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
- 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class Customer implements Serializable {
     @Fetch(FetchMode.SELECT)
     private Set<MOrder> morders = new HashSet<MOrder>(0);
     
-    @OneToOne(mappedBy="customer", fetch=FetchType.LAZY)
+    @OneToOne(cascade=CascadeType.ALL, mappedBy="customer", fetch=FetchType.LAZY)
     private CustomerProfile customerProfile;
     
     public Customer(){

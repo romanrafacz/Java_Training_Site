@@ -2,6 +2,7 @@ package com.lms.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,11 +29,10 @@ public class CustomerProfile implements Serializable {
 	@Column(name="email")
 	private String email;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "CUSTOMER_ID", nullable = false)
 	private Customer customer;
 	
-	@Id
 	@Column(name="customer_profile_phone")
 	private String phoneNumber;
 
